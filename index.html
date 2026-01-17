@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- LANGUAGE TOGGLE FLAGS -->
+<!-- LANGUAGE FLAGS -->
 <div id="lang-toggle" class="lang-toggle">
   <img src="flags/uk.png" alt="English" id="flag-en" class="flag active">
   <img src="flags/gr.png" alt="Greek" id="flag-gr" class="flag">
@@ -22,7 +22,7 @@
       <img src="images/pic.png" alt="Nick Alexandris" loading="lazy">
     </div>
     <div class="name">Nick Alexandris</div>
-    <div class="desc">Electrical Engineer TE</div>
+    <div class="desc label-text" data-en="Electrical Engineer TE" data-gr="Ηλεκτρολόγος Μηχανικός ΤΕ">Electrical Engineer TE</div>
 
     <div class="sm">
       <a href="https://www.facebook.com/rangersokin/" class="fab fa-facebook-f"></a>
@@ -39,23 +39,23 @@
     <div class="links">
       <div class="item">
         <span><a href="cv.pdf" download="cv.pdf"><img src="images/cv.jpg" class="icon" alt="CV"></a></span>
-        <span class="link-text" data-en="My CV" data-gr="Βιογραφικό">My CV</span>
+        <span class="link-text label-text" data-en="My CV" data-gr="Βιογραφικό">My CV</span>
       </div>
       <div class="border"></div>
       <div class="item">
         <span><a href="portfolio.html"><img src="images/portfolio.png" class="icon" alt="Portfolio"></a></span>
-        <span class="link-text" data-en="Portfolio" data-gr="Portfolio">Portfolio</span>
+        <span class="link-text label-text" data-en="Portfolio" data-gr="Portfolio">Portfolio</span>
       </div>
       <div class="border"></div>
       <div class="item">
         <span><a href="aboutme.html"><img src="images/info.png" class="icon" alt="About Me"></a></span>
-        <span class="link-text" data-en="About Me" data-gr="Σχετικά">About Me</span>
+        <span class="link-text label-text" data-en="About Me" data-gr="Σχετικά">About Me</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ABOUT ME SECTION -->
+<!-- ABOUT ME -->
 <main class="aboutme">
   <p class="bio-text" data-en="My name is Nick Alexandris, I was born in May 1997. I am an Electrical Engineer and Web Developer, mostly working on Electrical Installations/Plans and Front End Development. I love working in teams because I enjoy human interaction and synergy, but I also enjoy working solo on projects. I am cooperative, patient, and persistent. I don’t see work just as a way to make money, but as a chance to be useful and creative. I like to constantly learn, evolve, and adapt."
      data-gr="Ονομάζομαι Νίκος Αλεξανδρής, γεννήθηκα τον Μάιο του 1997. Είμαι Ηλεκτρολόγος Μηχανικός και Web Developer, κυρίως δουλεύω σε Ηλεκτρολογικές Εγκαταστάσεις/Σχέδια και Front End Development. Μου αρέσει να δουλεύω σε ομάδες γιατί απολαμβάνω την ανθρώπινη αλληλεπίδραση και τη συνεργασία, αλλά απολαμβάνω επίσης να δουλεύω μόνος μου σε projects. Είμαι συνεργάσιμος, υπομονετικός και επίμονος. Δεν βλέπω τη δουλειά μόνο ως τρόπο να κερδίζω χρήματα, αλλά κυρίως ως ευκαιρία να είμαι χρήσιμος και δημιουργικός. Μου αρέσει να μαθαίνω, να εξελίσσομαι και να προσαρμόζομαι συνεχώς.">
@@ -93,16 +93,14 @@
 <!-- LANGUAGE TOGGLE SCRIPT -->
 <script>
 window.addEventListener('DOMContentLoaded', () => {
-  let currentLang = 'en';
   const flagEn = document.getElementById('flag-en');
   const flagGr = document.getElementById('flag-gr');
 
   function switchLang(lang){
-    currentLang = lang;
     flagEn.classList.toggle('active', lang === 'en');
     flagGr.classList.toggle('active', lang === 'gr');
 
-    document.querySelectorAll('.bio-text, .quote, .label-text, .link-text').forEach(el => {
+    document.querySelectorAll('.bio-text, .quote, .label-text, .link-text, .desc').forEach(el => {
       if(el.dataset.en && el.dataset.gr){
         el.textContent = lang === 'en' ? el.dataset.en : el.dataset.gr;
       }
